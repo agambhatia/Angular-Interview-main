@@ -1,0 +1,28 @@
+<div style="margin-bottom: 20px;">
+    <label for="tag-filter">Filter by tag: </label>
+    <select id="tag-filter" [(ngModel)]="selectedTag" (change)="filterMovies()">
+      <option value="">All</option>
+      <option *ngFor="let tag of tags" [value]="tag">{{ tag }}</option>
+    </select>
+  </div>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let movie of filteredMovies" class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{movie.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Genere: {{movie.tags}}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Released: {{movie.date}}</h6>
+                <p class="card-text">{{movie.summary}}</p>
+                
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" (click)="openModal(movie)" style="margin-right: 10px;">See Details</a>
+                <a (click)="deleteMovie(movie.id)" class="btn btn-danger">Delete</a>
+              </div>
+        </div>
+    </div>
+</div>
+
+<app-info-modal *ngIf="selectedMovie" [movie]="selectedMovie" ></app-info-modal>

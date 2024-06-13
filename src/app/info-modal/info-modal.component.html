@@ -1,0 +1,18 @@
+<!-- movie-modal.component.html -->
+<div class="modal fade" id="movieModal" tabindex="-1" aria-labelledby="movieModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="movieModalLabel">{{ movie.title }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Summary:</strong> {{ movie.summary }}</p>
+          <p><strong>Full Text:</strong> {{ movie.full_text }}</p>
+          <p><strong>Release Date:</strong> {{ movie.date }}</p>
+          <p><strong>Tags:</strong> {{ movie.tags }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
